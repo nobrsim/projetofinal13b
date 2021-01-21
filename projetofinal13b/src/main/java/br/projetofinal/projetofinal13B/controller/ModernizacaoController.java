@@ -40,7 +40,7 @@ public class ModernizacaoController {
 
     @PostMapping("/update")
     public ResponseEntity<Modernizacao> atualizaModernizacao(@RequestBody Modernizacao modernizacao) {
-        if (modernizacao.getNum_seq() > 0) {
+        if (modernizacao.getNumSeq() > 0) {
             Modernizacao newModernizacao= repo.save(modernizacao);
             return ResponseEntity.ok(newModernizacao);
         }
@@ -48,7 +48,7 @@ public class ModernizacaoController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Modernizacao> novoUsuario(@RequestBody Modernizacao modernizacao) {
+    public ResponseEntity<Modernizacao> novoModernizacao(@RequestBody Modernizacao modernizacao) {
         Modernizacao newModernizacao = repo.save(modernizacao);
 
         return ResponseEntity.ok(newModernizacao);

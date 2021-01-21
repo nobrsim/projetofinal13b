@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import br.projetofinal.projetofinal13B.repository.ModernizacaoRepo;
 
 @RestController
 @RequestMapping("/modernizacao")
+@CrossOrigin("*")
 public class ModernizacaoController {
     
     @Autowired
@@ -32,7 +34,7 @@ public class ModernizacaoController {
     }
 
     @GetMapping("/all")
-    public List<Modernizacao> listarAnuncios(){
+    public List<Modernizacao> listarModernizacao(){
         List<Modernizacao> lista = (List<Modernizacao>) repo.findAll();
 
         return lista;
@@ -40,7 +42,7 @@ public class ModernizacaoController {
 
     @PostMapping("/update")
     public ResponseEntity<Modernizacao> atualizaModernizacao(@RequestBody Modernizacao modernizacao) {
-        if (modernizacao.getNum_seq() > 0) {
+        if (modernizacao.getNumSeq() > 0) {
             Modernizacao newModernizacao= repo.save(modernizacao);
             return ResponseEntity.ok(newModernizacao);
         }
@@ -48,7 +50,7 @@ public class ModernizacaoController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Modernizacao> novoUsuario(@RequestBody Modernizacao modernizacao) {
+    public ResponseEntity<Modernizacao> novoModernizacao(@RequestBody Modernizacao modernizacao) {
         Modernizacao newModernizacao = repo.save(modernizacao);
 
         return ResponseEntity.ok(newModernizacao);

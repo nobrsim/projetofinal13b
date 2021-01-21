@@ -27,10 +27,10 @@ public class Modernizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name = "num_seq")
-    private int num_seq;
+    private int numSeq;
 
     @Column(name = "data_modernizacao")
-    private Date data_modernizacao; //200
+    private Date dataModernizacao; //200
 
     @Column(name = "descricao")
     private String descricao; //200
@@ -41,7 +41,7 @@ public class Modernizacao {
 
     @ManyToOne
     @JoinColumn(name = "id_comunidade") // nome da coluna na tabela
-    @JsonIgnoreProperties("usuario") // atributo do User que não deve ser preenchido
+    @JsonIgnoreProperties("modernizacoes") // atributo do User que não deve ser preenchido
     private Comunidade comunidade;
 
 }

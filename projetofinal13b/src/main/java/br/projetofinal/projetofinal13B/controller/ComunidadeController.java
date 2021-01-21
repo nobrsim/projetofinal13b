@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import br.projetofinal.projetofinal13B.repository.ComunidadeRepo;
 
 @RestController
 @RequestMapping("/comunidade")
+@CrossOrigin("*")
 public class ComunidadeController {
     
     @Autowired
@@ -30,7 +32,7 @@ public class ComunidadeController {
     }
 
     @GetMapping("/all")
-    public List<Comunidade> listarAnuncios(){
+    public List<Comunidade> listarComunidades(){
         List<Comunidade> lista = (List<Comunidade>) repo.findAll();
 
         return lista;
